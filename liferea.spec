@@ -1,6 +1,6 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.2.15b
+%define version 1.2.15
 %define oversion %version
 %define release %mkrel 1
 
@@ -18,7 +18,7 @@ Patch: liferea-1.1.5-prototypes.patch
 Patch1:	liferea-1.1.0-firefox-detect.patch
 Patch2: liferea-planetmandriva.patch
 BuildRequires:	dbus-glib-devel
-BuildRequires:	gtkhtml2-devel 
+#BuildRequires:	gtkhtml2-devel 
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-vfs2-devel mozilla-firefox-devel ImageMagick
 BuildRequires:	libnotify-devel
