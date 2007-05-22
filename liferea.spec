@@ -15,10 +15,9 @@ URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.bz2
 Patch: liferea-1.1.5-prototypes.patch
-Patch1:	liferea-1.1.0-firefox-detect.patch
 Patch2: liferea-planetmandriva.patch
 BuildRequires:	dbus-glib-devel
-#BuildRequires:	gtkhtml2-devel 
+BuildRequires:	gtkhtml2-devel 
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-vfs2-devel mozilla-firefox-devel ImageMagick
 BuildRequires:	libnotify-devel
@@ -38,10 +37,6 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 %setup -q -n %name-%oversion
 %patch -p1 -b .prototypes
 %patch2 -p1 -b .planetmandriva
-%if %mdkversion <= 200700
-%patch1 -p1 -b .firefox-detect
-autoconf
-%endif
 perl -pi -e "s^/usr/lib^%_libdir^" src/liferea.in
 
 %build
@@ -57,19 +52,6 @@ export CXX="g++ -DMOZILLA_INTERNAL_API"
 %install
 rm -rf %{buildroot}
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
-
-# menu entry
-%__mkdir_p %{buildroot}%{_menudir}
-cat > %{buildroot}%{_menudir}/%{name} << _EOF_
-?package(%{name}): \
- command="%{_bindir}/liferea" \
- icon="%{name}.png" \
- longtitle="News aggregator simulating FeedReader" \
- needs="x11" \
- section="Internet/News" \
- title="Liferea" \
- startup_notify="true" xdg="true"
-_EOF_
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -114,9 +96,6 @@ rm -rf %{buildroot}
 %_mandir/man1/*
 %lang(pl) %_mandir/pl/man1/liferea.1*
 
-%{_menudir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-
-
