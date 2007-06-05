@@ -1,8 +1,8 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.2.15
+%define version 1.2.16
 %define oversion %version
-%define release %mkrel 2
+%define release %mkrel 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -60,7 +60,6 @@ GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
-  --add-category="X-MandrivaLinux-Internet-News" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # icons
