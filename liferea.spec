@@ -1,6 +1,6 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.2.18
+%define version 1.2.19
 %define oversion %version
 %define release %mkrel 1
 
