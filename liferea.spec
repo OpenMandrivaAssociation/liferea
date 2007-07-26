@@ -38,7 +38,7 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
 %setup -q -n %name-%version-%oversion
-%patch -p1 -b .prototypes
+patch -p1 -b .prototypes
 %patch2 -p1 -b .planetmandriva
 %if %mdkversion <= 200700
 %patch1 -p1 -b .firefox-detect
