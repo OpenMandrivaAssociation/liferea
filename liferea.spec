@@ -2,7 +2,7 @@
 %define	epoch	1
 %define version 1.4
 %define oversion RC3
-%define release %mkrel -c %oversion 1
+%define release %mkrel -c %oversion 2
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
