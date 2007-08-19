@@ -2,7 +2,7 @@
 %define	epoch	1
 %define version 1.4
 %define oversion RC3
-%define release %mkrel -c %oversion 2
+%define release %mkrel -c %oversion 3
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -38,7 +38,7 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
 %setup -q -n %name-%version-%oversion
-patch -p1 -b .prototypes
+#%patch -p1 -b .prototypes
 %patch2 -p1 -b .planetmandriva
 %if %mdkversion <= 200700
 %patch1 -p1 -b .firefox-detect
@@ -61,7 +61,7 @@ rm -rf %{buildroot}
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
 desktop-file-install --vendor="" \
-  --remove-category="Application" \
+  --add-category="GTK;GNOME" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # icons
