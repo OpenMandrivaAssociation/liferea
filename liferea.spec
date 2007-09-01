@@ -1,8 +1,7 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.4
-%define oversion RC3
-%define release %mkrel -c %oversion 3
+%define version 1.4.0
+%define release %mkrel 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -13,7 +12,7 @@ License:	GPL
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}-%{oversion}.tar.bz2
+Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
 Patch: liferea-1.1.5-prototypes.patch
 Patch1: liferea-1.1.0-firefox-detect.patch
 Patch2: liferea-planetmandriva.patch
@@ -37,7 +36,7 @@ RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds
 and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
-%setup -q -n %name-%version-%oversion
+%setup -q -n %name-%version
 #%patch -p1 -b .prototypes
 %patch2 -p1 -b .planetmandriva
 %if %mdkversion <= 200700
@@ -101,7 +100,6 @@ rm -rf %{buildroot}
 %exclude %{_libdir}/%{name}/*.la
 %_mandir/man1/*
 %lang(pl) %_mandir/pl/man1/liferea.1*
-
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
