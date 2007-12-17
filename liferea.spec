@@ -11,7 +11,6 @@ Epoch:		%{epoch}
 License:	GPLv2
 Group:		Networking/News
 URL:		http://liferea.sf.net/
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
 Patch: liferea-1.1.5-prototypes.patch
 Patch1: liferea-1.1.0-firefox-detect.patch
