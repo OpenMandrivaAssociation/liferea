@@ -1,7 +1,7 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.4.12
-%define release %mkrel 2
+%define version 1.4.13
+%define release %mkrel 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
