@@ -95,7 +95,7 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog NEWS README
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
-%_datadir/icons/hicolor/48x48/apps/liferea.png
+%_datadir/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
 %{_libdir}/%{name}
 %exclude %{_libdir}/%{name}/*.la
