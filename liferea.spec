@@ -67,9 +67,9 @@ desktop-file-install --vendor="" \
 # icons
 %__mkdir_p %{buildroot}%{_iconsdir} \
 	   %{buildroot}%{_liconsdir}
-%__install -D -m 644       pixmaps/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
-convert -geometry 32x32 pixmaps/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -geometry 48x48 pixmaps/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
+install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
+install -D -m 644 pixmaps/32x32/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
+install -D -m 644 pixmaps/48x48/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %find_lang %{name}
 
