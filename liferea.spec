@@ -28,6 +28,7 @@ BuildRequires:	libsm-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
+BuildRequires:	curl-devel
 Requires:	libmozilla-firefox = %(rpm -q --queryformat %{VERSION} mozilla-firefox)
 
 %description
