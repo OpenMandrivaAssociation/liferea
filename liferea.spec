@@ -29,6 +29,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	curl-devel
+BuildRequires:	intltool >= 0.35.0
 Requires:	libmozilla-firefox = %(rpm -q --queryformat %{VERSION} mozilla-firefox)
 
 %description
