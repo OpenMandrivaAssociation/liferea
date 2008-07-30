@@ -2,6 +2,7 @@
 %define	epoch	1
 %define version 1.5.5
 %define release %mkrel 2
+%define xulrunner_version %(pkg-config --modversion libxul-embedding)
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -30,7 +31,7 @@ BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	curl-devel
 BuildRequires:	intltool >= 0.35.0
-Requires:	%mklibname xulrunner 1.9
+Requires:	%{mklibname xulrunner %xulrunner_version}
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
