@@ -1,7 +1,7 @@
 %define	name	liferea
 %define	epoch	1
 %define version 1.5.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -13,24 +13,24 @@ Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
-Patch: liferea-1.1.5-prototypes.patch
-Patch1: liferea-1.1.0-firefox-detect.patch
+Patch1: liferea-1.5.5-build-xulrunner.patch
 Patch2: liferea-1.4.10-planetmandriva.patch
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtkhtml2-devel 
 BuildRequires:	gtk+2-devel
-BuildRequires:	gnome-vfs2-devel mozilla-firefox-devel ImageMagick
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	xulrunner-devel-unstable
+BuildRequires:  ImageMagick
 BuildRequires:	libnotify-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	libgnutls-devel
-#BuildRequires:	liblua-devel
 BuildRequires:	libsm-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	curl-devel
 BuildRequires:	intltool >= 0.35.0
-Requires:	libmozilla-firefox = %(rpm -q --queryformat %{VERSION} mozilla-firefox)
+Requires:	%mklibname xulrunner 1.9
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
@@ -39,21 +39,10 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
 %setup -q -n %name-%version
-#%patch -p1 -b .prototypes
-#%patch2 -p1 -b .planetmandriva
-%if %mdkversion <= 200700
-%patch1 -p1 -b .firefox-detect
-autoconf
-%endif
-perl -pi -e "s^/usr/lib^%_libdir^" src/liferea.in
+%patch1 -p1 -b .xulrunner-configure
 
 %build
-%if %mdkversion <= 1000
-%define __libtoolize true
-%define __cputoolize true
-%endif
-#gw else it does not build with ff 1.5
-export CXX="g++ -DMOZILLA_INTERNAL_API"
+autoreconf
 %configure2_5x --disable-schemas-install
 %make
 
