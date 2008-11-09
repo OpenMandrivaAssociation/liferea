@@ -1,8 +1,8 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.5.5
-%define release %mkrel 3
-#define xulrunner_version %(pkg-config --modversion libxul-embedding)
+%define version 1.5.6
+%define svn 	4144
+%define release %mkrel -c %svn 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -13,15 +13,12 @@ License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
+#Source:		http://prdownloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
+Source:		%name-r%svn.tar.bz2
 Patch0: liferea-1.4.10-planetmandriva.patch
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-vfs2-devel
-# (fhimpe) Liferea's xulrunner detection and building is pretty broken,
-# so we use webkit now
-# Amongst others: https://sourceforge.net/tracker/?func=detail&atid=581684&aid=2036220&group_id=87005
-#BuildRequires:	xulrunner-devel-unstable
 BuildRequires:	webkitgtk-devel
 BuildRequires:  ImageMagick
 BuildRequires:	libnotify-devel
@@ -32,8 +29,8 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	curl-devel
+BuildRequires:	gnome-common
 BuildRequires:	intltool >= 0.35.0
-#Requires:	%{mklibname xulrunner %xulrunner_version}
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
@@ -41,15 +38,12 @@ RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds
 and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
-%setup -q -n %name-%version
+%setup -q -n %name
 %patch0 -p1 -b .planetmandriva
 
 %build
-autoreconf
-%configure2_5x 	--disable-schemas-install \
-		--disable-gtkhtml2 \
-		--disable-xulrunner \
-		--enable-webkit
+NOCONFIGURE=yes gnome-autogen.sh
+%configure2_5x 	--disable-schemas-install --disable-nm
 %make
 
 %install
