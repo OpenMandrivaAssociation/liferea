@@ -18,7 +18,7 @@ BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	webkitgtk-devel
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires:	libnotify-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	libgnutls-devel
