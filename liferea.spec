@@ -1,6 +1,6 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.6.1
+%define version 1.6.2
 %define release %mkrel 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
@@ -27,6 +27,7 @@ BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libnm-glib-devel
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
@@ -39,6 +40,7 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
 %build
+autoreconf -fis
 %configure2_5x 	--disable-schemas-install --disable-nm
 %make
 
