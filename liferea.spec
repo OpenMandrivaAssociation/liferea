@@ -1,7 +1,7 @@
 %define	name	liferea
 %define	epoch	1
 %define version 1.6.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -41,7 +41,7 @@ sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Plan
 
 %build
 autoreconf -fis
-%configure2_5x 	--disable-schemas-install --disable-nm
+%configure2_5x 	--disable-schemas-install --enable-nm
 %make
 
 %install
