@@ -41,7 +41,12 @@ sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Plan
 
 %build
 autoreconf -fis
-%configure2_5x 	--disable-schemas-install --enable-nm
+%configure2_5x 	--disable-schemas-install \
+%if %mdkversion >= 201010
+	--enable-nm
+%else
+	--disable-nm
+%endif
 %make
 
 %install
