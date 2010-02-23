@@ -27,7 +27,7 @@ BuildRequires:	sqlite3-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	libnm-glib-devel
+BuildRequires:	NetworkManager-glib-devel
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
