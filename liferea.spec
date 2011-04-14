@@ -1,7 +1,7 @@
 %define	name	liferea
 %define	epoch	1
 %define version 1.6.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -13,6 +13,7 @@ Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://downloads.sourceforge.net/project/liferea/Liferea%20Stable/%{version}/%{name}-%{version}.tar.gz
+Patch0:		libnotify-0.7-api.patch
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-vfs2-devel
@@ -28,6 +29,7 @@ BuildRequires:	libglade2.0-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	NetworkManager-glib-devel
+BuildRequires:	lua-devel
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
@@ -36,11 +38,12 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
 %setup -q -n %name-%version
+%patch0 -p1
 # Add Planet Mandriva feed
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
 %build
-autoreconf -fis
+autoreconf -fi
 %configure2_5x 	--disable-schemas-install \
 %if %mdkversion >= 201010
 	--enable-nm
@@ -51,7 +54,9 @@ autoreconf -fis
 
 %install
 rm -rf %{buildroot}
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
+%makeinstall_std
+
+rm -f %buildroot%{_libdir}/%{name}/*.la
 
 desktop-file-install --vendor="" \
   --add-category="GTK;GNOME" \
@@ -95,7 +100,6 @@ rm -rf %{buildroot}
 %_datadir/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
 %{_libdir}/%{name}
-%exclude %{_libdir}/%{name}/*.la
 %_mandir/man1/*
 %lang(pl) %_mandir/pl/man1/liferea.1*
 %{_iconsdir}/%{name}.png
