@@ -12,7 +12,7 @@ License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:		http://downloads.sourceforge.net/project/liferea/Liferea%20Stable/%{version}/%{name}-%{version}.tar.gz
+Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
 #gw missing from the 1.6.6 tarball:
 Source1: liferea_dbus.xml
 Patch0:		libnotify-0.7-api.patch
