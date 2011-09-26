@@ -1,7 +1,8 @@
 %define	name	liferea
 %define	epoch	1
-%define version 1.6.6b
-%define release %mkrel 1
+%define version 1.8
+%define prerel RC1
+%define release %mkrel -c %prerel 1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
@@ -12,24 +13,22 @@ License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
-Patch0:		libnotify-0.7-api.patch
-BuildRequires:	dbus-glib-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	gnome-vfs2-devel
+Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}-%prerel.tar.gz
+BuildRequires:	gtk+2-devel >= 2.18
+BuildRequires:  glib2-devel >= 2.26
 BuildRequires:	webkitgtk-devel
+BuildRequires:	avahi-client-devel
 BuildRequires:  imagemagick
 BuildRequires:	libnotify-devel
 BuildRequires:	libxslt-devel
-BuildRequires:	libgnutls-devel
 BuildRequires:	libsm-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
-BuildRequires:	libglade2.0-devel
 BuildRequires:	libsoup-devel
+BuildRequires:	unique-devel
+BuildRequires:	libjson-glib-devel
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	NetworkManager-glib-devel
-BuildRequires:	lua-devel
+
 
 %description
 Liferea (abbreviation of Linux Feed Reader) is a news aggregator for
@@ -37,21 +36,13 @@ RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds
 and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
-%setup -q -n %name-%version
-%if %mdvver >= 201100
-%patch0 -p1
-%endif
+%setup -q -n %name-%version-%prerel
+
 # Add Planet Mandriva feed
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
 %build
-autoreconf -fi
-%configure2_5x 	--disable-schemas-install \
-%if %mdkversion >= 201010
-	--enable-nm
-%else
-	--disable-nm
-%endif
+%configure2_5x 	--disable-schemas-install
 %make
 
 %install
@@ -96,12 +87,11 @@ rm -rf %{buildroot}
 %defattr(0644,root,root,0755)
 %{_sysconfdir}/gconf/schemas/%{name}.schemas
 %defattr(-, root, root)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog README
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
 %_datadir/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
-%{_libdir}/%{name}
 %_mandir/man1/*
 %lang(pl) %_mandir/pl/man1/liferea.1*
 %{_iconsdir}/%{name}.png
