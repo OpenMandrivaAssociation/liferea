@@ -16,6 +16,7 @@ Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}-%prerel.tar.gz
 BuildRequires:	gtk+2-devel >= 2.18
 BuildRequires:  glib2-devel >= 2.26
+BuildRequires:	libGConf2-devel
 BuildRequires:	webkitgtk-devel
 BuildRequires:	avahi-client-devel
 BuildRequires:  imagemagick
