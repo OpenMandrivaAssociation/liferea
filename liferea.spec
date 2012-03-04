@@ -42,7 +42,7 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 # Add Planet Mandriva feed
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
-autoreconf
+autoreconf -fi
 
 %build
 %configure2_5x 	--disable-schemas-install
