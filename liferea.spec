@@ -12,7 +12,7 @@ Group:		Networking/News
 URL:		http://liferea.sf.net/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
-Patch0:		liferea-1.8.1-fix-build.patch
+Source1:	liferea-%version-missing-soruces.tar.xz
 BuildRequires:	gtk+2-devel >= 2.18
 BuildRequires:  glib2-devel >= 2.26
 BuildRequires:	libGConf2-devel
@@ -36,13 +36,11 @@ RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds
 and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
-%setup -q -n %name-%version
+%setup -q -n %name-%version -a 1
 %apply_patches
 
 # Add Planet Mandriva feed
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
-
-autoconf
 
 %build
 %configure2_5x 	--disable-schemas-install
