@@ -25,7 +25,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	unique-devel
-BuildRequires:	json-glib-devel
+BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	intltool >= 0.35.0
 
 
