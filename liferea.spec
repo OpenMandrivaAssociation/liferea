@@ -1,7 +1,7 @@
 %define	name	liferea
 %define	epoch	1
 %define version 1.8.8
-%define release %mkrel 1
+%define release  2
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		%{name}
 Version:	%{version}
@@ -10,7 +10,6 @@ Epoch:		%{epoch}
 License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
 BuildRequires:	gtk+2-devel >= 2.18
 BuildRequires:  glib2-devel >= 2.26
