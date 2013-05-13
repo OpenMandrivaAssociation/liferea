@@ -18,9 +18,9 @@ BuildRequires:	libGConf2-devel
 BuildRequires:	webkitgtk-devel
 BuildRequires:	avahi-client-devel
 BuildRequires:  imagemagick
-BuildRequires:	libnotify-devel
-BuildRequires:	libxslt-devel
-BuildRequires:	libsm-devel
+BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(libexslt)
+BuildRequires:	pkgconfig(sm)
 BuildRequires:	desktop-file-utils
 BuildRequires:	sqlite3-devel
 BuildRequires:	libsoup-devel
