@@ -13,7 +13,7 @@ URL:		http://liferea.sf.net/
 Source:		http://downloads.sourceforge.net/liferea/%{name}-%{version}.tar.gz
 BuildRequires:	gtk+2-devel >= 2.18
 BuildRequires:  glib2-devel >= 2.26
-BuildRequires:	libGConf2-devel
+BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	webkitgtk-devel
 BuildRequires:	avahi-client-devel
 BuildRequires:  imagemagick
