@@ -1,12 +1,12 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.10.2
-Release:	4
+Version:	1.10.17
+Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
-Source:	http://freefr.dl.sourceforge.net/project/liferea/Liferea%20Stable/-%{version}/%{name}-%{version}.tar.bz2
+Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
 # patch from mga
 Patch0:		liferea-1.10.2-drop-commented-req.patch
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
@@ -64,7 +64,12 @@ install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.pn
 install -D -m 644 pixmaps/32x32/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
 install -D -m 644 pixmaps/48x48/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
 
-desktop-file-validate %{buildroot}/%{_datadir}/applications/liferea.desktop
+desktop-file-install --vendor="" \
+  --add-category="GTK;GNOME" \
+  --remove-category="Feed" \
+  --set-key="Version" \
+  --set-value="1.0" \
+ %{buildroot}/%{_datadir}/applications/liferea.desktop
 
 %find_lang %{name}
 
@@ -73,6 +78,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/liferea.desktop
 %doc AUTHORS ChangeLog README
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
+%{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
 %_mandir/man1/*
