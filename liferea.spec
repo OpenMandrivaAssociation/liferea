@@ -1,6 +1,6 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.10.17
+Version:	1.12.2
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -8,7 +8,6 @@ Group:		Networking/News
 URL:		http://liferea.sf.net/
 Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
 # patch from mga
-Patch0:		liferea-1.10.2-drop-commented-req.patch
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gmodule-2.0) >= 2.0.0
@@ -25,7 +24,7 @@ BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.27
 BuildRequires:	pkgconfig(libxslt) >= 1.1.19
 BuildRequires:	pkgconfig(pango) >= 1.4.0
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
-BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool >= 0.35.0
@@ -69,7 +68,7 @@ desktop-file-install --vendor="" \
   --remove-category="Feed" \
   --set-key="Version" \
   --set-value="1.0" \
- %{buildroot}/%{_datadir}/applications/liferea.desktop
+ %{buildroot}/%{_datadir}/applications/net.sourceforge.liferea.desktop
 
 %find_lang %{name}
 
@@ -88,6 +87,7 @@ desktop-file-install --vendor="" \
 %{_miconsdir}/%{name}.png
 %{_libdir}/%{name}/girepository-1.0/Liferea-3.0.typelib
 %{_libdir}/%{name}/plugins/*
+%{_libdir}/%{name}/web-extension
 %{_datadir}/glib-2.0/schemas/net.sf.liferea.gschema.xml
 %{_datadir}/GConf/gsettings/liferea.convert
-
+%{_datadir}/dbus-1/services/net.sourceforge.liferea.service

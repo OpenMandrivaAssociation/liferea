@@ -1,5 +1,6 @@
 removed_sources:
+  liferea-1.10.17.tar.bz2: 7f19a64984424a7c24408dc62721a8fb5b0ef80d
   liferea-1.10.2.tar.bz2: 24d533af7dcd985d3cc8b2589fc3443c17b5acd7
   liferea-1.8.8.tar.gz: 9dfbf5ff8bd91060bdea93d74c37a8a828a2edfe
 sources:
-  liferea-1.10.17.tar.bz2: 7f19a64984424a7c24408dc62721a8fb5b0ef80d
+  liferea-1.12.2.tar.bz2: 4e8cf44b3507f206d8b1657811c191a1123cf499
