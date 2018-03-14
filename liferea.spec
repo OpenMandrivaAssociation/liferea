@@ -74,7 +74,7 @@ desktop-file-install --vendor="" \
 
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog README
+%doc AUTHORS ChangeLog INSTALL
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
 %{_datadir}/appdata/%{name}.appdata.xml
