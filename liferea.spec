@@ -39,7 +39,7 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
 %setup -q -n %name-%version
-%apply_patches
+%autopatch -p1
 
 # utf-8 convert
 iconv -f iso8859-1 -t utf-8 man/pl/liferea.1 > man/pl/liferea.1.conv && \
