@@ -1,13 +1,13 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.12.2
+Version:	1.12.9
 Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
-Patch1:		0001-Fix-date_format-function-prototype.patch
+
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gmodule-2.0) >= 2.0.0
@@ -49,11 +49,11 @@ mv -f man/pl/liferea.1.conv man/pl/liferea.1
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
 %build
-%configure2_5x 
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 install -p -D -m 644 liferea.convert %{buildroot}%{_datadir}/GConf/gsettings/liferea.convert
 
 # icons
