@@ -7,7 +7,7 @@ License:	GPLv2+
 Group:		Networking/News
 URL:		http://liferea.sf.net/
 Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
-Patch1:		0001-Fix-date_format-function-prototype.patch
+
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gmodule-2.0) >= 2.0.0
