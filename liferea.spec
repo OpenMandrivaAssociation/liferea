@@ -59,7 +59,7 @@ install -p -D -m 644 liferea.convert %{buildroot}%{_datadir}/GConf/gsettings/lif
 # icons
 %__mkdir_p %{buildroot}%{_iconsdir} \
 	   %{buildroot}%{_liconsdir}
-install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
+#install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
 install -D -m 644 pixmaps/32x32/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
 install -D -m 644 pixmaps/48x48/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
 
