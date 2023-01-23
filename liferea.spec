@@ -77,14 +77,14 @@ desktop-file-install --vendor="" \
 %doc AUTHORS ChangeLog INSTALL
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/appdata/%{name}.appdata.xml
+#{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
-%_mandir/man1/*
+#_mandir/man1/*
 %lang(pl) %_mandir/pl/man1/liferea.1*
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
+#{_iconsdir}/%{name}.png
+#{_liconsdir}/%{name}.png
+#{_miconsdir}/%{name}.png
 %{_libdir}/%{name}/girepository-1.0/Liferea-3.0.typelib
 %{_libdir}/%{name}/plugins/*
 %{_libdir}/%{name}/web-extension
