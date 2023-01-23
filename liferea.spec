@@ -88,6 +88,9 @@ desktop-file-install --vendor="" \
 %{_libdir}/%{name}/girepository-1.0/Liferea-3.0.typelib
 %{_libdir}/%{name}/plugins/*
 %{_libdir}/%{name}/web-extension
+%{_datadir}/metainfo/net.sourceforge.liferea.appdata.xml
 %{_datadir}/glib-2.0/schemas/net.sf.liferea.gschema.xml
 %{_datadir}/GConf/gsettings/liferea.convert
 %{_datadir}/dbus-1/services/net.sourceforge.liferea.service
+%{_mandir}/it/man1/liferea.1.*
+%{_mandir}/man1/liferea.1.*
