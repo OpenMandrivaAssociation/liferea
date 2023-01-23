@@ -81,7 +81,7 @@ desktop-file-install --vendor="" \
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
 #_mandir/man1/*
-%lang(pl) %_mandir/pl/man1/liferea.1*
+#lang(pl) %_mandir/pl/man1/liferea.1*
 #{_iconsdir}/%{name}.png
 #{_liconsdir}/%{name}.png
 #{_miconsdir}/%{name}.png
