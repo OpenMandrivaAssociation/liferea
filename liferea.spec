@@ -1,6 +1,6 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.12.9
+Version:	1.14.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -59,9 +59,9 @@ install -p -D -m 644 liferea.convert %{buildroot}%{_datadir}/GConf/gsettings/lif
 # icons
 %__mkdir_p %{buildroot}%{_iconsdir} \
 	   %{buildroot}%{_liconsdir}
-install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
-install -D -m 644 pixmaps/32x32/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
-install -D -m 644 pixmaps/48x48/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
+#install -D -m 644 pixmaps/16x16/liferea.png %{buildroot}%{_miconsdir}/%{name}.png
+#install -D -m 644 pixmaps/32x32/liferea.png %{buildroot}%{_iconsdir}/%{name}.png
+#install -D -m 644 pixmaps/48x48/liferea.png %{buildroot}%{_liconsdir}/%{name}.png
 
 desktop-file-install --vendor="" \
   --add-category="GTK;GNOME" \
@@ -77,17 +77,20 @@ desktop-file-install --vendor="" \
 %doc AUTHORS ChangeLog INSTALL
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/appdata/%{name}.appdata.xml
+#{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
-%_mandir/man1/*
-%lang(pl) %_mandir/pl/man1/liferea.1*
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
+#_mandir/man1/*
+#lang(pl) %_mandir/pl/man1/liferea.1*
+#{_iconsdir}/%{name}.png
+#{_liconsdir}/%{name}.png
+#{_miconsdir}/%{name}.png
 %{_libdir}/%{name}/girepository-1.0/Liferea-3.0.typelib
 %{_libdir}/%{name}/plugins/*
 %{_libdir}/%{name}/web-extension
+%{_datadir}/metainfo/net.sourceforge.liferea.appdata.xml
 %{_datadir}/glib-2.0/schemas/net.sf.liferea.gschema.xml
 %{_datadir}/GConf/gsettings/liferea.convert
 %{_datadir}/dbus-1/services/net.sourceforge.liferea.service
+%{_mandir}/it/man1/liferea.1.*
+%{_mandir}/man1/liferea.1.*
