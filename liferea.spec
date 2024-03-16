@@ -15,6 +15,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gsettings-desktop-schemas)
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.4.0
+BuildRequires:	pkgconfig(harfbuzz-gobject)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libnotify) >= 0.7
 BuildRequires:	pkgconfig(libpeas-1.0) >= 1.0.0
