@@ -5,7 +5,7 @@ Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
-URL:		http://liferea.sf.net/
+URL:		https://liferea.sf.net/
 Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
 
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
@@ -19,12 +19,12 @@ BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libnotify) >= 0.7
 BuildRequires:	pkgconfig(libpeas-1.0) >= 1.0.0
 BuildRequires:	pkgconfig(libpeas-gtk-1.0) >= 1.0.0
-BuildRequires:	pkgconfig(libsoup-2.4) >= 2.28.2
+BuildRequires:	pkgconfig(libsoup-3.0)
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.27
 BuildRequires:	pkgconfig(libxslt) >= 1.1.19
 BuildRequires:	pkgconfig(pango) >= 1.4.0
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
-BuildRequires:	pkgconfig(webkit2gtk-4.0)
+BuildRequires:	pkgconfig(webkit2gtk-4.1)
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool >= 0.35.0
@@ -77,14 +77,8 @@ desktop-file-install --vendor="" \
 %doc AUTHORS ChangeLog INSTALL
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
-#{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/%{name}
-#_mandir/man1/*
-#lang(pl) %_mandir/pl/man1/liferea.1*
-#{_iconsdir}/%{name}.png
-#{_liconsdir}/%{name}.png
-#{_miconsdir}/%{name}.png
 %{_libdir}/%{name}/girepository-1.0/Liferea-3.0.typelib
 %{_libdir}/%{name}/plugins/*
 %{_libdir}/%{name}/web-extension
