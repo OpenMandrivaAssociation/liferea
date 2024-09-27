@@ -1,6 +1,6 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.15.7
+Version:	1.15.8
 Release:	1
 Epoch:		1
 License:	GPLv2+
