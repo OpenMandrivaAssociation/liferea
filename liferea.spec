@@ -1,14 +1,14 @@
-%define oversion 1.16-RC1
+#define oversion 1.16-RC1
 
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
-Version:	1.16~RC1
+Version:	1.16.5
 Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
 URL:		https://liferea.sf.net/
-Source:		https://github.com/lwindolf/liferea/releases/download/v%{oversion}/liferea-%{oversion}.tar.bz2
+Source:		https://github.com/lwindolf/liferea/releases/download/v%{version}/liferea-%{version}.tar.bz2
 
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
@@ -41,7 +41,7 @@ RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds
 and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 
 %prep
-%setup -q -n %{name}-%{oversion}
+%setup -q -n %{name}-%{version}
 %autopatch -p1
 
 # utf-8 convert
