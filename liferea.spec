@@ -15,6 +15,7 @@ BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gmodule-2.0) >= 2.0.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gsettings-desktop-schemas)
+BuildRequires:	pkgconfig(girepository-2.0)
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.4.0
 BuildRequires:	pkgconfig(harfbuzz-gobject)
@@ -26,6 +27,8 @@ BuildRequires:	pkgconfig(libsoup-3.0)
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.27
 BuildRequires:	pkgconfig(libxslt) >= 1.1.19
 BuildRequires:	pkgconfig(pango) >= 1.4.0
+BuildRequires:	pkgconfig(pygobject-3.0)
+BuildRequires:	pkgconfig(libpeas-2)
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
 BuildRequires:	pkgconfig(webkit2gtk-4.1)
 BuildRequires:	imagemagick
