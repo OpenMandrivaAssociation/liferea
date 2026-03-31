@@ -3,7 +3,7 @@
 Summary:	A News Aggregator For RSS/RDF Feeds For GTK/GNOME
 Name:		liferea
 Version:	1.16.7
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
@@ -26,8 +26,6 @@ BuildRequires:	pkgconfig(gtk+-3.0) >= 3.4.0
 BuildRequires:	pkgconfig(harfbuzz-gobject)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libnotify) >= 0.7
-BuildRequires:	pkgconfig(libpeas-1.0) >= 1.0.0
-BuildRequires:	pkgconfig(libpeas-gtk-1.0) >= 1.0.0
 BuildRequires:	pkgconfig(libsoup-3.0)
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.27
 BuildRequires:	pkgconfig(libxslt) >= 1.1.19
