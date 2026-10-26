@@ -54,16 +54,19 @@ and OCS or OPML directories. It is a simple FeedReader clone for Unix.
 %setup -q -n %{name}-%{version}
 %autopatch -p1
 
-# utf-8 convert
+# utf-8 convert. 1.16.12 dropped the polish man page.
+if [ -f man/pl/liferea.1 ]; then
 iconv -f iso8859-1 -t utf-8 man/pl/liferea.1 > man/pl/liferea.1.conv && \
 mv -f man/pl/liferea.1.conv man/pl/liferea.1
+fi
 
 # Add Planet Mandriva feed
 sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Planet Mandriva" htmlUrl="http://planetmandriva.zarb.org/" xmlUrl="http://planetmandriva.zarb.org/rss20.xml" />@' opml/*.opml
 
 %build
 %configure
-%make_build
+# The in-tree libtool script returns without writing the liferea wrapper.
+%make_build LIBTOOL=slibtool-shared
 
 %install
 %make_install
