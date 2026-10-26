@@ -69,7 +69,7 @@ sed -i -e 's@^\(.*http://planet\.gnome\.org.*\)$@\1\n\t\t\t\t<outline text="Plan
 %make_build LIBTOOL=slibtool-shared
 
 %install
-%make_install
+%make_install LIBTOOL=slibtool-shared
 install -p -D -m 644 liferea.convert %{buildroot}%{_datadir}/GConf/gsettings/liferea.convert
 
 # icons
